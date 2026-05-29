@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+        <header>
+            <h1>STUDENT GRADE ANALYSIS</h1>
+            <h3>school name: xyz high school</h3>
+        </header>
+        <form action="/" method="POST">
+            <label for="name">Student Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="enter your name" required>
+            <br>
+            <label for="rollnumber">Student Roll number:</label><br>
+            <input type="number" id="rollnumber" name="rollnumber" placeholder="enter your rollnumber" required>
+            <br>
+            <label for="dob">Date of Birth</label><br>
+            <input type="date" id="dob" name="dob" placeholder="dob" required>
+            <br>
+            <label for="class">Class</label><br>
+            <select id="class" name="class" required>
+                <option value="class1">class 1</option>
+                <option value="class2">class 2</option>
+                <option value="class3">class 3</option>
+                <option value="class4">class 4</option>
+                <option value="class5">class 5</option>
+                <option value="class6">class 6</option>
+                <option value="class7">class 7</option>
+                <option value="class8">class 8</option>
+                <option value="class9">class 9</option>
+                <option value="class10">class 10</option>
+            </select>
+            <br>
+            <label for="1st_language">1st language</label><br>
+            <input type="number" id="1st_language" name="1st_language" max="100" min="0" placeholder="0" required>
+            <br>
+            <label for="2nd_language">2nd language</label><br>
+            <input type="number" id="2nd_language" name="2nd_language" max="100" min="0" placeholder="0" required>
+            <br>
+            <label for="maths">maths</label><br>
+            <input type="number" id="maths" name="maths" max="100" min="0" placeholder="0" required>
+            <br>
+            <label for="science">science</label><br>
+            <input type="number" id="science" name="science" max="100" min="0" placeholder="0" required>
+            <br>
+            <label for="social">social</label><br>
+            <input type="number" id="social" name="social" max="100" min="0" placeholder="0" required>
+            <br>
+            <label for="submit"></label><br>
+            <input type="submit" value="Calculate Grade">
+        </form>
+        <br>
+        <hr>
+        <br>
+        {% if result %}
+        <div>
+            <h2>Student Report</h2>
+            <table>
+            <tr>
+                <th>name</th>
+                <td>{{ result.name }}</td>
+            </tr>
+            <tr>
+                <th>class</th>
+                <td>{{ result.class }}</td>
+            </tr>
+            <tr>
+                <th>Roll Number</th>
+                <td>{{ result.rollnumber }}</td>
+            </tr>
+            <tr>
+                <th>first language</th>
+                <td>{{ result.first_lang_grade }}</td>
+            </tr>
+            <tr>
+                <th>second language</th>
+                <td>{{ result.second_lang_grade }}</td>
+            </tr>
+            <tr>
+                <th>maths</th>
+                <td>{{ result.maths_grade }}</td>
+            </tr>
+            <tr>
+                <th>science</th>
+                <td>{{ result.science_grade }}</td>
+            </tr>
+            <tr>
+                <th>social</th>
+                <td>{{ result.social_grade }}</td>
+            </tr>
+            <tr>
+                <th>Total marks</th>
+                <td>{{ result.Total }}</td>
+            </tr>
+            <tr>
+                <th>Total percentage</th>
+                <td>{{ result.percentage }}</td>
+            </tr>
+            <tr>
+                <th>Grade</th>
+                <td>{{ result.Grade }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{result.Status}}</td>
+            </tr>
+        </table>
+        </div>
+        {% endif %}
+</body>
+</html>
